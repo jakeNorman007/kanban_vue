@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/vue-query";
-import { getBoards } from "../services/boardApi";
+import { getBoards } from "../../services/boardApi";
 
 export function useBoards() {
     const { isLoading, error, data: boards } = useQuery({

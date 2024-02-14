@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { useBoards } from "./queries/useBoards";
-
-const { boards } = useBoards();
+import Navbar from "./components/Navbar.vue";
 </script>
 
 <template>
-    <div v-for="(board, index) in boards" :key="index">
-        <div>{{ board.name }}</div>
+    <Navbar />
+    <div class="m-14">
+        <router-view />
     </div>
 </template>
