@@ -3,7 +3,7 @@ import { RouteRecordRaw, createRouter, createWebHistory } from "vue-router";
 const routes: RouteRecordRaw[] = [
     {
         path: "/",
-        redirect: { path: "/boards/1/lists" },
+        redirect: "/boards/1/lists",
         children: [
             {
                 path: "boards/:id/lists",
@@ -18,8 +18,8 @@ const routes: RouteRecordRaw[] = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
-  routes,
+    history: createWebHistory(),
+    routes,
 });
 
 export default router;

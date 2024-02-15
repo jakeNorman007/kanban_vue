@@ -7,7 +7,7 @@ export function useLists() {
     const id = route.params.id as string;
 
     const { isLoading, error, data: lists } = useQuery({
-        queryKey: ["lists", id],
+        queryKey: ["list", id],
         queryFn: () => getLists(id),
     });
 

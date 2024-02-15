@@ -1,10 +1,10 @@
 import supabase from "./supabase";
 
-//GET
-export async function getBoards() {
-    const { data, error } = await supabase
-        .from("board")
-        .select("*");
+//**GET REQUESTS**
+
+//fetches all the boards in the table "board"
+export async function getAllBoards() {
+    const { data, error } = await supabase.from("board").select("*");
 
     if(error) {
         console.log(error);
@@ -14,12 +14,9 @@ export async function getBoards() {
     return data;
 }
 
-export async function getBoard(id: string) {
-    const { data, error } = await supabase
-        .from("board")
-        .select("*")
-        .eq("id", id)
-        .single();
+//fetches an individual board based off it's id in table "board", *MAY NOT NEED*
+export async function getBoards(id: string) {
+    const { data, error } = await supabase.from("board").select("*").eq("id", id).single();
 
     if(error) {
         console.log(error);
@@ -28,5 +25,3 @@ export async function getBoard(id: string) {
 
     return data;
 };
-
-//CREATE

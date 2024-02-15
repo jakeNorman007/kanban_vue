@@ -1,6 +1,8 @@
 import supabase from "./supabase";
 
-//GET
+//**GET REQUESTS**
+
+//fetches all the lists based on the "board" table foreign id, from the "list" table
 export async function getLists(id: string) {
     const { data, error } = await supabase
         .from("list")
@@ -12,7 +14,11 @@ export async function getLists(id: string) {
         throw new Error("Lists could not be gathered");
     }
 
+    console.log(data);
+
+    Object.values(data).forEach(value => {
+        console.log(value.id);
+    });
+
     return data;
 };
-
-//CREATE
