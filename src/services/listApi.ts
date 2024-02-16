@@ -14,10 +14,13 @@ export async function getLists(id: string) {
         throw new Error("Lists could not be gathered");
     }
 
-    console.log(data);
+    //console.log(data);
 
     Object.values(data).forEach(value => {
-        console.log(value.id);
+        const foo = value.id;
+
+        //let x: string[] = [];
+        console.log(foo);
     });
 
     return data;
