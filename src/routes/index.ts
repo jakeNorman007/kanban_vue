@@ -13,7 +13,7 @@ const routes: RouteRecordRaw[] = [
                         component: () => import("../views/Board.vue"),
                             children: [
                             {
-                                path: ":listName",
+                                path: ":listId",
                                 component: () => import("../views/Card.vue"),
                             },
                         ],
