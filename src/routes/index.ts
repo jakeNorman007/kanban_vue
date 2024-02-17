@@ -4,10 +4,19 @@ const routes: RouteRecordRaw[] = [
     {
         path: "/",
         redirect: "/boards/1/lists",
+    },
+    {
+        path: "/boards/:id/lists",
         children: [
             {
-                path: "boards/:id/lists",
+                path: "",
                 component: () => import("../views/Board.vue"),
+                children: [
+                    {
+                        path: "",
+                        component: () => import("../views/Card.vue"),
+                    },
+                ],
             },
         ],
     },

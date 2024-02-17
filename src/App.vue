@@ -3,9 +3,9 @@ import Navbar from "./components/Navbar.vue";
 </script>
 
 <template>
-    <div class="md:flex">
+    <div class="md:flex md:overflow-x-hidden">
         <Navbar />
-        <div class="m-14">
+        <div>
             <router-view />
         </div>
     </div>
