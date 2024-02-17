@@ -2,5 +2,5 @@
 </script>
 
 <template>
-    This is where the cards related to the lists will go
+    Sup from the cards bby
 </template>
