@@ -1,6 +1,14 @@
 <script setup lang="ts">
+import { getCards } from "../queries/cardQueries/useGetCard";
+
+const { isLoading, cards } = getCards();
 </script>
 
 <template>
-    Sup from the cards bby
+    <div v-if="isLoading">Loading cards...</div>
+    <div v-else>
+        <div v-for="(card, index) in cards" :key="index">
+            {{ card?.name }}
+        </div>
+    </div>
 </template>

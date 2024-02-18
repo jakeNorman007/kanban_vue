@@ -5,13 +5,15 @@ const { isLoading, lists } = useLists();
 </script>
 
 <template>
-    <div v-if="isLoading">Loading lists...</div>
-    <div class="md:w-screen md:flex md:gap-6 md:border-b-2 md:border-black">
-        <div v-for="(list, index) in lists" :key="index">
-            <button @click="$router.push(`lists/${list?.name}`)">{{list?.name}}</button>
-        </div>
+    <div v-if="isLoading" class="md:h-[4rem] md:w-screen md:border-b-2 md:border-black">
+        Loading lists...
     </div>
-    <div>
-        <router-view />
+    <div v-else class="md:h-[4rem] md:w-screen md:flex md:gap-6 md:border-b-2 md:border-black">
+        <nav v-for="(list, index) in lists" :key="index">
+            <button @click="$router.push(`lists/${list?.id}`)">
+                {{list?.name}}
+            </button>
+        </nav>
     </div>
+    <router-view />
 </template>
