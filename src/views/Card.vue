@@ -7,8 +7,8 @@ const { isLoading, cards } = getCards();
 <template>
     <div v-if="isLoading">Loading cards...</div>
     <div v-else>
-        <div v-for="(card, index) in cards" :key="index" class="md:border-2 md:border-black">
-            {{ card?.name }}
+        <div v-for="(card, index) in cards" :key="index">
+            <p>{{ card?.name }}</p>
         </div>
     </div>
 </template>
