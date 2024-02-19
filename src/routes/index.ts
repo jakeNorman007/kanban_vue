@@ -3,24 +3,17 @@ import { RouteRecordRaw, createRouter, createWebHistory } from "vue-router";
 const routes: RouteRecordRaw[] = [
     {
         path: "/",
-        redirect: "/boards/1/lists",
+        redirect: "/boards/1/",
+    },
+    {
+        path: "/boards/:id",
+        component: () => import("../views/Board.vue"),
         children: [
             {
-                path: "/boards/:id/lists",
-                children: [
-                    {
-                        path: "",
-                        component: () => import("../views/Board.vue"),
-                            children: [
-                            {
-                                path: ":listId",
-                                component: () => import("../views/Card.vue"),
-                            },
-                        ],
-                    },
-                ],
+                path: "list/:listId",
+                component: () => import("../views/Card.vue"),
             },
-        ], 
+        ],
     },
     {
         path: '/:pathMatch(.*)*',

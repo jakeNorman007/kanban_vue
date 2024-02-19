@@ -10,7 +10,7 @@ const { isLoading, lists } = useLists();
     </div>
     <div v-else class="md:h-[4rem] md:w-screen md:flex md:gap-6 md:border-b-2 md:border-black">
         <nav v-for="(list, index) in lists" :key="index">
-            <button @click="$router.push(`lists/${list?.id}`)">
+            <button @click="$router.push(`list/${list?.id}`)">
                 {{list?.name}}
             </button>
         </nav>
