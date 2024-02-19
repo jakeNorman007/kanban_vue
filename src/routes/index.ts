@@ -10,13 +10,11 @@ const routes: RouteRecordRaw[] = [
         path: "/boards/:id/lists",
         name: "boards", 
         component: () => import("../views/Board.vue"),
-        props: route => ({ ...route.params, id: route.params.id }),
         children: [
             { 
                 path: ":listId",
                 name: "list_cards",
                 component: () => import("../views/Card.vue"),
-                props: route => ({ ...route.params, id: route.params.id }),
             },
         ],
     },
