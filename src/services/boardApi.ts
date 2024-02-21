@@ -15,8 +15,8 @@ export async function getAllBoards() {
 }
 
 //fetches an individual board based off it's id in table "board", *MAY NOT NEED*
-export async function getBoards(id: string) {
-    const { data, error } = await supabase.from("board").select("*").eq("id", id).single();
+export async function getBoards() {
+    const { data, error } = await supabase.from("board").select("*").eq("id", 1);
 
     if (error) {
         console.log(error);
