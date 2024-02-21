@@ -10,13 +10,15 @@ const clickHandle = () => {
 </script>
 
 <template>
-        <div v-if="isLoading" class="md:py-6 md:pl-6">Loading boards...</div>
-        <div v-else class="md:flex md:gap-5 md:items-center md:py-6">
-            <div @click="clickHandle">
-                <router-link v-for="(board, index) in boards" :key="index" :to="{ path: `/boards/${board.id}`}">
-                    <p class="md:pl-6 md:text-3xl">{{ board?.name }}</p>
-                </router-link>
+    <div class="md:flex md:gap-4 md:py-3 md:pl-6">
+        <EditNameModal />
+        <div v-if="isLoading" class="md:pl-6 md:text-3xl">Loading...</div>
+            <div v-else class="md:flex md:gap-4 md:items-center">
+                <div @click="clickHandle">
+                    <router-link v-for="(board, index) in boards" :key="index" :to="{ path: `/boards/${board.id}`}">
+                        <p class="md:pl-6 md:text-3xl">{{ board?.name }}</p>
+                    </router-link>
+                </div>
             </div>
-            <EditNameModal />
-        </div>
+    </div>
 </template>
