@@ -6,7 +6,7 @@ import supabase from "./supabase";
 export async function getAllBoards() {
     const { data, error } = await supabase.from("board").select("*");
 
-    if(error) {
+    if (error) {
         console.log(error);
         throw new Error("Boards could not be gathered");       
     }
@@ -18,9 +18,21 @@ export async function getAllBoards() {
 export async function getBoards(id: string) {
     const { data, error } = await supabase.from("board").select("*").eq("id", id).single();
 
-    if(error) {
+    if (error) {
         console.log(error);
         throw new Error("Board could not be gathered");
+    }
+
+    return data;
+};
+
+//**UPDATE REQUESTS**
+export async function updateBoard(newBoard: string) {
+    const { data, error } = await supabase.from("board").update(newBoard).eq("id", 1).single();
+
+    if (error) {
+        console.log(error);
+        throw new Error("Board name could not be updated");
     }
 
     return data;

@@ -9,9 +9,7 @@ const clickHandle = () => {
 </script>
 
 <template>
-        <div v-if="isLoading" class="md:flex md:w-screen md:border-b-2 md:border-black">
-            <p>Loading lists...</p>
-        </div>
+        <div v-if="isLoading" class="md:px-5 md:pb-6">Loading lists...</div>
         <div v-else class="md:w-screen">
             <div @click="clickHandle" class="md:flex md:gap-5 md:px-5 md:pb-6">
                 <router-link v-for="(list, index) in lists" :key="index" :to="{ path: `${list.id}`}">
