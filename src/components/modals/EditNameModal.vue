@@ -4,9 +4,7 @@ import { ref } from "vue";
 
 const modalOpen = ref<boolean>(false);
 
-defineProps({
-    name: String,
-});
+defineProps(["boards"],);
 </script>
 
 <template>
@@ -22,10 +20,13 @@ defineProps({
                 <p class="md:text-xl">Change board name</p>
                 <p class="md:text-xl md:text-green-400">.</p>
             </div>
-            <input id="board_name" class="md:px-2 md:text-lg md:py-2 md:rounded md:border md:border-black" />
+            <div v-for="(board, index) in boards" :key="index">
+                <input :value="board?.name" id="board_name" class="md:w-[28rem] md:px-2 md:text-lg md:py-2 md:rounded md:border 
+                    md:border-black" />
+            </div>
             <div class="md:flex md:justify-center md:gap-3">
                 <button class="md:w-[15rem] md:hover:bg-green-300 md:py-2 md:rounded md:bg-green-400">
-                    <p>{{ name }}</p>
+                    <p>Update</p>
                 </button>
                 <button @click="modalOpen = false" class="md:w-[15rem] md:hover:bg-green-300 md:py-2 md:rounded md:bg-green-400">
                     <p>Close</p>
