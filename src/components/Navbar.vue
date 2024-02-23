@@ -7,7 +7,7 @@ const { isLoading, boards } = useBoards();
 </script>
 
 <template>
-    <div class="flex items-center py-3 pl-6">
+    <div class="flex md:items-center py-3 pl-6 mt-6">
         <EditNameModal :boards="boards" />
         <div v-if="isLoading" class="pl-[4rem] text-3xl text-green-400"><Spinner /></div>
         <div v-else v-for="(board, index) in boards" :key="index">
