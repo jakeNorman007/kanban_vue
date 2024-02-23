@@ -1,17 +1,18 @@
 <script setup lang="ts">
 import EditNameModal from "../components/modals/EditNameModal.vue";
+import Spinner from "../icons/Spinner.vue";
 import { useBoards } from "../queries/boardQueries/useBoards";
 
 const { isLoading, boards } = useBoards();
 </script>
 
 <template>
-    <div class="md:flex md:gap-4 md:py-3 md:pl-6">
+    <div class="flex items-center py-3 pl-6">
         <EditNameModal :boards="boards" />
-        <div v-if="isLoading" class="md:pl-6 md:text-3xl">Loading...</div>
+        <div v-if="isLoading" class="pl-[4rem] text-3xl text-green-400"><Spinner /></div>
         <div v-else v-for="(board, index) in boards" :key="index">
             <div class="md:flex">
-                <div class="md:pl-6 md:text-3xl">{{ board?.name }}</div>
+                <div class="text-3xl pl-6">{{ board?.name }}</div>
             </div>
         </div>
     </div>

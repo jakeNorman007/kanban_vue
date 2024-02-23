@@ -27,6 +27,7 @@ export async function getBoards() {
 };
 
 //**UPDATE REQUESTS**
+//
 export async function updateBoard(newBoard: string) {
     const { data, error } = await supabase.from("board").update(newBoard).eq("id", 1).single();
 

@@ -4,7 +4,7 @@ import { updateBoard as updateBoardApi } from "../../services/boardApi";
 export function useUpdateBoard() {
     const queryClient = useQueryClient();
 
-    const { mutate: updateBoardName, isPending: isEditing } = useMutation({
+    const { mutate: updateBoardName, isLoading: isUpdating } = useMutation({
         mutationFn: updateBoardApi,
         onSuccess: () => {
             console.log("Board name updated");
@@ -16,5 +16,5 @@ export function useUpdateBoard() {
         onError: (error) => console.log(error.message),
     });
 
-    return { updateBoardName, isEditing };
+    return { updateBoardName, isUpdating};
 };
