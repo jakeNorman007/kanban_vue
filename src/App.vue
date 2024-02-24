@@ -5,7 +5,7 @@ import GithubIcon from "./icons/GithubIcon.vue";
 
 <template>
     <div class="overflow-x-hidden">
-        <div class="md:border-b md:border-black flex justify-between shadow md:shadow-none md:p-6 p-4">
+        <div class="flex justify-between shadow md:p-6 p-4">
             <div class="flex">
                 <p class="text-5xl font-semibold">Deskbink</p>
                 <p class="text-5xl text-green-400">.</p>

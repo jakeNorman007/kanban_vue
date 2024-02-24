@@ -8,7 +8,7 @@ const { updateBoardName, isUpdating } = useUpdateBoard();
 
 defineProps(["boards"],);
 
-function handleUpdate(event: any, field: any) {
+function handleUpdate(event: any, field: number) {
     const { value } = event.target;
    //console.log(value);
 
@@ -21,7 +21,7 @@ function handleUpdate(event: any, field: any) {
 
 <template>
     <button @click="modalOpen = true" class="flex gap-2 bg-green-400 hover:bg-green-300 rounded px-3 py-2">
-        <p>Edit</p><EditIcon />
+        <EditIcon />
     </button>
     <div v-if="modalOpen" class="h-screen fixed bg-black z-[998] w-full left-0 
         top-0 opacity-25">
