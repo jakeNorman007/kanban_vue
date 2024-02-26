@@ -16,9 +16,9 @@ export async function getLists(id: string) {
 
 //**CREATE**
 //do I need an interface here?? idk.
-export async function createList({ listName, description }) {
+export async function createList(List: { listName: string; description: string }) {
 
-    const { data, error } = await supabase.from("list").insert([{ listName: listName, description: description,}]).select();
+    const { data, error } = await supabase.from("list").insert({ List }).select();
     if (error) {
         console.log(error);
         throw new Error("List could not be created");
