@@ -14,3 +14,15 @@ export async function getLists(id: string) {
     return data;
 };
 
+//**CREATE**
+//do I need an interface here?? idk.
+export async function createList({ listName, description }) {
+
+    const { data, error } = await supabase.from("list").insert([{ listName: listName, description: description,}]).select();
+    if (error) {
+        console.log(error);
+        throw new Error("List could not be created");
+    }
+
+    return data;
+};
