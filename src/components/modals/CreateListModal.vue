@@ -1,9 +1,9 @@
 <script setup lang="ts">
-    import CreateIcon from "../../icons/CreateIcon.vue";
-import { useCreateList } from "../../queries/listQueries/useCreateList";
+import CreateIcon from "../../icons/CreateIcon.vue";
+//import { useCreateList } from "../../queries/listQueries/useCreateList";
 import { Teleport, ref } from "vue";
 
-const { isCreating, createList } = useCreateList();
+//const { isCreating, createList } = useCreateList();
 const modalOpen = ref(false);
 const listName = ref("");
 </script>
