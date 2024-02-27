@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import EditIcon from "../../icons/EditIcon.vue";
 import { useUpdateBoard } from "../../queries/boardQueries/useUpdateBoard";
-import { ref } from "vue";
+import { Teleport, ref } from "vue";
 
+const { updateBoardName, isUpdating } = useUpdateBoard<String>();
 const modalOpen = ref<boolean>(false);
-const { updateBoardName, isUpdating } = useUpdateBoard();
 
 defineProps(["boards"],);
 

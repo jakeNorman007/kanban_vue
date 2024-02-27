@@ -27,6 +27,22 @@ export type Database = {
         }
         Relationships: []
       }
+      list: {
+        Row: {
+          created_at: string
+          id: number
+          name: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          name?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          name?: string | null
+        }
     }
     Views: {
       [_ in never]: never
