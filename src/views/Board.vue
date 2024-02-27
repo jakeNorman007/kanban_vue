@@ -13,10 +13,10 @@ const clickHandle = () => {
 </script>
 
 <template>
-    <div class="md:ml-6 md:mb-3">
-        <CreateListModal />
-    </div>
     <div class="md:flex md:gap-6 md:ml-6">
+        <div class="md:mb-3 md:mt-6">
+            <CreateListModal />
+        </div>
         <div v-if="isLoading"><Spinner class="text-green-400" /></div>
         <div v-else class="md:flex md:gap-6">
             <div v-for="(list, index) in lists" :key="index">
