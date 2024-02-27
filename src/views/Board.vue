@@ -13,18 +13,22 @@ const clickHandle = () => {
 </script>
 
 <template>
-    <div class="md:flex md:gap-6 md:ml-6 md:mt-6 md:items-center">
-        <div>
-            <CreateListModal />
-        </div>
+    <div class="md:ml-6 md:mb-3">
+        <CreateListModal />
+    </div>
+    <div class="md:flex md:gap-6 md:ml-6">
         <div v-if="isLoading"><Spinner class="text-green-400" /></div>
-        <div v-else>
-            <div @click="clickHandle" class="md:flex md:gap-6">
-                <router-link v-for="(list, index) in lists" :key="index" :to="{ path: `${list.id}`}" class="flex gap-3">
-                    <button class="md:bg-green-400">{{list?.listName}}</button><EditIcon /><DeleteIcon />
-                </router-link>
-                <div>
-
+        <div v-else class="md:flex md:gap-6">
+            <div v-for="(list, index) in lists" :key="index">
+                <div class="md:flex md:justify-end md:bg-gray-200 md:ml-[11rem] md:pr-2 md:rounded-t md:pt-1">
+                    <EditIcon /><DeleteIcon />
+                </div>
+                <div @click="clickHandle">
+                    <router-link :to="{ path: `${list.id}`}">
+                        <button class="md:bg-green-400 md:w-[15rem] md:py-1 md:rounded-l md:rounded-br">
+                            {{list?.listName}}
+                        </button>
+                    </router-link>
                 </div>
             </div>
         </div>

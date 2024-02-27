@@ -32,5 +32,6 @@ export async function updateBoard(newBoard) {
         console.log(error);
         throw new Error("Board name could not be updated");
     }
+
     return data;
 };

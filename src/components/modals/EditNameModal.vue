@@ -3,7 +3,8 @@ import EditIcon from "../../icons/EditIcon.vue";
 import { useUpdateBoard } from "../../queries/boardQueries/useUpdateBoard";
 import { Teleport, ref } from "vue";
 
-const { updateBoardName, isUpdating } = useUpdateBoard<String>();
+const { updateBoardName, isUpdating } = useUpdateBoard();
+
 const modalOpen = ref<boolean>(false);
 
 defineProps(["boards"],);

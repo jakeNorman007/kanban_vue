@@ -7,11 +7,11 @@ export function useCreateList() {
     const { mutate: createList, isLoading: isCreating } = useMutation({
         mutationFn: createListAPI,
         onSuccess: () => {
-            alert("List has been created.");
-            queryClient.invalidateQueries({ queryKey: ["list"], });
+            console.log("List has been created.");
+            queryClient.invalidateQueries({ queryKey: ["lists"], });
         },
 
-        onError: (error) => alert(error.message),
+        onError: (error) => console.log(error.message),
     });
     
     return { isCreating, createList };
