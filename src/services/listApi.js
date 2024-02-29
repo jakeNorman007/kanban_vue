@@ -24,3 +24,27 @@ export async function createList({ listName, board_id }) {
 
     return data;
 };
+
+//**UPDATE**
+export async function updateList(newList) {
+    const { data, error } = await supabase.from("list").update(newList).eq("id", board_id).single();
+
+    if (error) {
+        console.log(error);
+        throw new Error("List name could not be updated");
+    }
+
+    return data;
+};
+
+//**DELETE**
+export async function deleteList(id) {
+    const { data, error } = await supabase.from("list").delete().eq("id", id);
+
+    if (error) {
+        console.log(error);
+        throw new Error("List could not be deleted");
+    }
+
+    return data;
+};

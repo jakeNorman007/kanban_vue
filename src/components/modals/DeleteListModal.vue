@@ -1,5 +1,38 @@
 <script setup lang="ts">
+import DeleteIcon from "../../icons/DeleteIcon.vue";
+import { Teleport, ref } from "vue";
+import { useDeleteList } from "../../queries/listQueries/useDeleteList";
+//import { useLists } from "../../queries/listQueries/useGetList";
+
+const { isDeleting, deleteList } = useDeleteList();
+const modalOpen = ref<boolean>(false);
 </script>
 
 <template>
+    <button @click="modalOpen = true"> 
+        <DeleteIcon />
+    </button>
+    <div v-if="modalOpen" class="h-screen fixed bg-black z-[998] w-full left-0 
+        top-0 opacity-25">
+        <Teleport to="body">
+        <div v-if="modalOpen" class="gap-3 p-4 flex flex-col bg-white rounded fixed z-[999] w-[30rem] 
+            h-[9rem] left-[11%] md:left-[35%] top-[40%] md:top-[40%]">
+            <div class="flex items-center">
+                <p class="text-xl">Delete list</p>
+                <p class="text-xl text-green-400">.</p>
+            </div>
+            <div class="flex flex-col gap-3">
+                <p>Are you sure you want to delete this list?</p>
+                <div class="flex gap-3">
+                    <button :disabled="isDeleting" @click="deleteList()"class="w-[15rem] hover:bg-green-300 py-2 rounded bg-green-400">
+                        <p>Delete</p>
+                    </button>
+                    <button @click="modalOpen = false" class="w-[15rem] hover:bg-green-300 py-2 rounded bg-green-400">
+                        <p>Close</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+        </Teleport>
+    </div>
 </template>
