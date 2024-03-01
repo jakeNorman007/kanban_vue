@@ -29,7 +29,7 @@ const clickHandle = () => {
                     </router-link>
                 </div>
                 <div class="md:flex">
-                    <EditListModal :list="list"/>
+                    <EditListModal :id="list?.id" :listName="list?.listName"/>
                     <DeleteListModal :list="list?.id"/>
                 </div>
             </div>

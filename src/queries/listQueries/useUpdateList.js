@@ -1,14 +1,11 @@
 import { useQueryClient, useMutation } from "@tanstack/vue-query";
 import { updateList as updateListApi } from "../../services/listApi";
-import { useRoute } from "vue-router";
 
 export function useUpdateList() {
     const queryClient = useQueryClient();
-    const route = useRoute();
-    const id = route.params.listId;
 
     const { mutate: updateListName, isLoading: isUpdating } = useMutation({
-        mutationFn: updateListApi(id),
+        mutationFn: updateListApi,
         onSuccess: () => {
             console.log("List name updated");
             queryClient.invalidateQueries({
