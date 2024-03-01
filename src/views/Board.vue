@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import Spinner from "../icons/Spinner.vue";
 import CreateListModal from "../components/modals/CreateListModal.vue";
-import { useLists } from "../queries/listQueries/useGetList";
 import EditListModal from "../components/modals/EditListModal.vue";
 import DeleteListModal from "../components/modals/DeleteListModal.vue";
+import { useLists } from "../queries/listQueries/useGetList";
+//import { useGetOneList } from "../queries/listQueries/useGetOneList";
 
 const { isLoading, lists } = useLists();
 
@@ -27,7 +28,10 @@ const clickHandle = () => {
                         </button>
                     </router-link>
                 </div>
-                <div class="md:flex"><EditListModal /><DeleteListModal /></div>
+                <div class="md:flex">
+                    <EditListModal :list="list"/>
+                    <DeleteListModal :list="list?.id"/>
+                </div>
             </div>
         </div>
     </div>

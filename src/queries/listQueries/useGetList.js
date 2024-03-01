@@ -3,7 +3,6 @@ import { getLists } from "../../services/listApi";
 import { useRoute } from "vue-router";
 
 export function useLists() {
-
     const route = useRoute();
     const listId = route.params.id;
 

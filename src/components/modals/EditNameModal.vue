@@ -11,7 +11,6 @@ defineProps(["boards"],);
 
 function handleUpdate(event: any, field: number) {
     const { value } = event.target;
-   //console.log(value);
 
     if (!value) return;
     updateBoardName({ [field]: value });

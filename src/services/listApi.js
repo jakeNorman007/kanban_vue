@@ -1,6 +1,6 @@
 import supabase from "./supabase";
 
-//**GET REQUESTS**
+//**GET**
 //fetches all the lists based on the "board" table foreign id, from the "list" table
 export async function getLists(id) {
     const { data, error } = await supabase.from("list").select().eq("board_id", id);
@@ -8,6 +8,18 @@ export async function getLists(id) {
     if (error) {
         console.log(error);
         throw new Error("Lists could not be gathered");
+    }
+
+    return data;
+};
+
+//retrieves list by it's id
+export async function getList(id) {
+    const { data, error } = await supabase.from("list").select("*").eq("id", id).single();
+
+    if (error) {
+        console.log(error);
+        throw new Error("Single list could not be gathered");
     }
 
     return data;
@@ -27,7 +39,7 @@ export async function createList({ listName, board_id }) {
 
 //**UPDATE**
 export async function updateList(newList) {
-    const { data, error } = await supabase.from("list").update(newList).eq("id", board_id).single();
+    const { data, error } = await supabase.from("list").update(newList).eq("id", id).single();
 
     if (error) {
         console.log(error);
