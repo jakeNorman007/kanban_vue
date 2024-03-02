@@ -39,7 +39,7 @@ export async function createList({ listName, board_id }) {
 
 //**UPDATE**
 export async function updateList(newList, id) {
-    const { data, error } = await supabase.from("list").update(newList).eq("id", id);
+    const { data, error } = await supabase.from("list").update(newList, id).eq("id", id).select();
 
     if (error) {
         console.log(error);

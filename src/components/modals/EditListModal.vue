@@ -9,7 +9,7 @@ const { updateListName, isUpdating } = useUpdateList();
 
 defineProps(["id", "listName"],);
 
-function handleUpdate(event: any, field: any ) {
+function handleUpdate(event: any, field: any) {
     const { value } = event.target;
     console.log(value);
 
