@@ -34,7 +34,7 @@ function handleUpdate(event: any, field: any) {
                 <p class="text-xl text-green-400">.</p>
             </div>
             <form :disabled="isUpdating">
-                <input type="text" @blur="(event) => handleUpdate(event, 'listName')" :value="listName" id="list_name"
+                <input type="text" @click="(event) => handleUpdate(event, 'listName')" :value="listName" id="list_name"
                 class="mb-3 w-[28rem] px-2 text-lg py-2 rounded border border-black" />
                 <div class="flex justify-center gap-3">
                     <button class="w-[15rem] hover:bg-green-300 py-2 rounded bg-green-400">
