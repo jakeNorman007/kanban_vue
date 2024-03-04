@@ -5,11 +5,11 @@ export function useUpdateList() {
     const queryClient = useQueryClient();
 
     const { mutate: updateListName, isLoading: isUpdating } = useMutation({
-        mutationFn: updateListApi,
+        mutationFn: ({ listName, id }) => updateListApi(listName, id),
         onSuccess: () => {
             console.log("List name updated");
             queryClient.invalidateQueries({
-                queryKey: ["lists"],
+                queryKey: ["list"],
             });
         },
 

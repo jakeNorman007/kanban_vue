@@ -33,7 +33,7 @@ const listName = ref("");
                     <button type="submit" :disbaled="isCreating" class="w-[15rem] hover:bg-green-300 py-2 rounded bg-green-400">
                         <p>Create</p>
                     </button>
-                    <button @click="modalOpen = false" class="w-[15rem] hover:bg-green-300 py-2 rounded bg-green-400">
+                    <button @click.prevent="modalOpen = false" class="w-[15rem] hover:bg-green-300 py-2 rounded bg-green-400">
                         <p>Close</p>
                     </button>
                 </div>

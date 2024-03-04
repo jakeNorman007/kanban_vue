@@ -2,10 +2,12 @@
 import EditIcon from "../../icons/EditIcon.vue";
 import { Teleport, ref } from "vue";
 import { useUpdateList } from "../../queries/listQueries/useUpdateList";
-
+import { useRoute } from "vue-router";
 
 const modalOpen = ref<boolean>(false);
 const { updateListName, isUpdating } = useUpdateList();
+const route = useRoute();
+const id = route.params.listId;
 
 defineProps(["id", "listName"],);
 
@@ -14,7 +16,7 @@ function handleUpdate(event: any, field: any) {
     console.log(value);
 
     if (!value) return;
-    updateListName({ [field]: value });
+    updateListName({ [field]: value, id});
 }
 
 //TODO add a watcher for the name edit
@@ -34,13 +36,10 @@ function handleUpdate(event: any, field: any) {
                 <p class="text-xl text-green-400">.</p>
             </div>
             <form :disabled="isUpdating">
-                <input type="text" @click="(event) => handleUpdate(event, 'listName')" :value="listName" id="list_name"
+                <input type="text" @blur="(event) => handleUpdate(event, 'listName')" :value="listName" id="list_name"
                 class="mb-3 w-[28rem] px-2 text-lg py-2 rounded border border-black" />
                 <div class="flex justify-center gap-3">
-                    <button class="w-[15rem] hover:bg-green-300 py-2 rounded bg-green-400">
-                        <p>Update</p>
-                    </button>
-                    <button @click="modalOpen = false" class="w-[15rem] hover:bg-green-300 py-2 rounded bg-green-400">
+                    <button @click.prevent="modalOpen = false" class="w-full hover:bg-green-300 py-2 rounded bg-green-400">
                         <p>Close</p>
                     </button>
                 </div>

@@ -1,3 +1,4 @@
+import { useRoute } from "vue-router";
 import supabase from "./supabase";
 
 //**GET**
@@ -38,15 +39,15 @@ export async function createList({ listName, board_id }) {
 };
 
 //**UPDATE**
-export async function updateList(newList, id) {
-    const { data, error } = await supabase.from("list").update(newList, id).eq("id", id).select();
+export async function updateList(listName, id) {
+    //console.log(listName, id);
+    const { data, error } = await supabase.from("list").update({ listName, id }).eq("id", id).single();
 
     if (error) {
         console.log(error);
         throw new Error("List name could not be updated");
     }
 
-    console.log(data);
     return data;
 };
 
