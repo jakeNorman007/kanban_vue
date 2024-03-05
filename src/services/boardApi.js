@@ -1,6 +1,7 @@
 import supabase from "./supabase";
 
-//**GET**
+//**GET**//
+//grab all the boards so they can be listed if need be
 export async function getAllBoards() {
     const { data, error } = await supabase.from("board").select("*");
 
@@ -12,7 +13,7 @@ export async function getAllBoards() {
     return data;
 };
 
-//**!!!!!!may not need this!!!!!!**
+//**!!!!!!may not need this!!!!!!**//
 export async function getBoard(id) {
     const { data, error } = await supabase.from("board").select("*").eq("id", id).single();
 
@@ -24,7 +25,8 @@ export async function getBoard(id) {
     return data;
 };
 
-//**UPDATE**
+//**UPDATE**//
+//since there is only one board at the moment we don;t need to get the id by route
 export async function updateBoard(newBoard) {
     const { data, error } = await supabase.from("board").update(newBoard).eq("id", 1).single();
 

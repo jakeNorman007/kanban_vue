@@ -1,7 +1,6 @@
-import { useRoute } from "vue-router";
 import supabase from "./supabase";
 
-//**GET**
+//**GET**//
 //fetches all the lists based on the "board" table foreign id, from the "list" table
 export async function getLists(id) {
     const { data, error } = await supabase.from("list").select().eq("board_id", id);
@@ -16,7 +15,7 @@ export async function getLists(id) {
 
 //retrieves list by it's id
 export async function getList(id) {
-    const { data, error } = await supabase.from("list").select("*").eq("id", id).single();
+    const { data, error } = await supabase.from("list").select("*").order("id").eq("id", id).single();
 
     if (error) {
         console.log(error);
@@ -27,6 +26,7 @@ export async function getList(id) {
 };
 
 //**CREATE**
+//creates a new list, based off the board's id. in this case it should be board_id: 1
 export async function createList({ listName, board_id }) {
     const { data, error } = await supabase.from("list").insert({ listName: listName, board_id }).select();
 
@@ -38,9 +38,10 @@ export async function createList({ listName, board_id }) {
     return data;
 };
 
-//**UPDATE**
+//**UPDATE**//
+//updates/edits the list's name, it know's based off the list id in the edit modal
 export async function updateList(listName, id) {
-    //console.log(listName, id);
+    console.log(listName, id);
     const { data, error } = await supabase.from("list").update({ listName, id }).eq("id", id).single();
 
     if (error) {
@@ -51,7 +52,8 @@ export async function updateList(listName, id) {
     return data;
 };
 
-//**DELETE**
+//**DELETE**//
+//deletes list based of id, warning modal pops up to double check
 export async function deleteList(id) {
     const { data, error } = await supabase.from("list").delete().eq("id", id);
 

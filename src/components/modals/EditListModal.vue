@@ -9,14 +9,14 @@ const { updateListName, isUpdating } = useUpdateList();
 const route = useRoute();
 const id = route.params.listId;
 
-defineProps(["id", "listName"],);
+defineProps(["listName"],);
 
 function handleUpdate(event: any, field: any) {
     const { value } = event.target;
-    console.log(value);
+    //console.log(value);
 
     if (!value) return;
-    updateListName({ [field]: value, id});
+    updateListName({ [field]: value, id });
 }
 
 //TODO add a watcher for the name edit

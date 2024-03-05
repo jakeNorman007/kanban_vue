@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import EditNameModal from "../components/modals/EditNameModal.vue";
 import Spinner from "../icons/Spinner.vue";
+import EditNameModal from "../components/modals/EditNameModal.vue";
 import { useBoards } from "../queries/boardQueries/useBoards";
 
 const { isLoading, boards } = useBoards();
