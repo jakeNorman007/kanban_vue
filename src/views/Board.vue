@@ -21,16 +21,16 @@ function handleRefresh() {
         <div v-if="isLoading"><Spinner class="text-green-400" /></div>
         <div v-else class="md:flex md:gap-5 md:items-center">
             <div v-for="(list, index) in lists" :key="index" class="md:flex md:items-center">
-                <div @click="handleRefresh" class="md:bg-green-400 md:w-[12rem] md:py-1 md:px-3 md:rounded-l">
-                    <router-link :to="{ path: `${list.id}`}" >
-                        {{list?.listName}}
+                <div @click="handleRefresh()" class="md:bg-green-400 md:w-[12rem] md:py-1 md:px-3 md:rounded-l">
+                    <router-link :to="{ path: `${list.id}`}">
+                        <p>{{list?.listName}}</p>
                     </router-link>
                 </div>
                 <div class="md:bg-green-400 md:py-1 md:pr-1 md:rounded-r">
                     <HamburgerIcon />
                 </div>
                 <div class="md:flex">
-                    <EditListModal :listName="list?.listName"/>
+                    <EditListModal :listName="list?.listName" />
                     <DeleteListModal :list="list?.id"/>
                 </div>
             </div>

@@ -23,7 +23,7 @@ const listName = ref("");
         <div v-if="modalOpen" class="gap-3 p-4 flex flex-col bg-white rounded fixed z-[999] w-[30rem] 
             h-[11rem] left-[11%] md:left-[35%] top-[40%] md:top-[40%]">
             <div class="flex items-center">
-                <p class="text-xl">Create new board</p>
+                <p class="text-xl">Create new list</p>
                 <p class="text-xl text-green-400">.</p>
             </div>
             <form @submit="createList({listName, board_id: board_id})">
