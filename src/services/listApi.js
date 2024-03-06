@@ -3,7 +3,7 @@ import supabase from "./supabase";
 //**GET**//
 //fetches all the lists based on the "board" table foreign id, from the "list" table
 export async function getLists(id) {
-    const { data, error } = await supabase.from("list").select().eq("board_id", id);
+    const { data, error } = await supabase.from("list").select().order("id", { ascending: true }).eq("board_id", id);
 
     if (error) {
         console.log(error);
@@ -15,7 +15,7 @@ export async function getLists(id) {
 
 //retrieves list by it's id
 export async function getList(id) {
-    const { data, error } = await supabase.from("list").select("*").order("id").eq("id", id).single();
+    const { data, error } = await supabase.from("list").select("*").eq("id", id).single();
 
     if (error) {
         console.log(error);

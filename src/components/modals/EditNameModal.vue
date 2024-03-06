@@ -16,6 +16,9 @@ function handleUpdate(event: any, field: number) {
     updateBoardName({ [field]: value });
 }
 
+function handleRefresh() {
+    window.location.reload();
+};
 //TODO add a watcher for the name edit
 </script>
 
@@ -34,9 +37,10 @@ function handleUpdate(event: any, field: number) {
             </div>
             <form v-if="isUpdating = true" v-for="(board, index) in boards" :key="index">
                 <input @blur="(event) => handleUpdate(event, 'name')" :value="board?.name" id="board_name" 
-                    class="mb-3 w-[28rem] px-2 text-lg py-2 rounded border border-black" />
+                    maxlength="15" class="mb-3 w-[28rem] px-2 text-lg py-2 rounded border border-black" />
                 <div class="flex justify-center gap-3">
-                    <button @click.prevent="modalOpen = false" class="w-full hover:bg-green-300 py-2 rounded bg-green-400">
+                    <button @click.prevent="modalOpen = false; handleRefresh();" 
+                        class="w-full hover:bg-green-300 py-2 rounded bg-green-400">
                         <p>update.</p>
                     </button>
                 </div>

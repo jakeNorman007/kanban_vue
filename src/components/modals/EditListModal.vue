@@ -37,7 +37,7 @@ function handleUpdate(event: any, field: any) {
             </div>
             <form :disabled="isUpdating">
                 <input type="text" @blur="(event) => handleUpdate(event, 'listName')" :value="listName" id="list_name"
-                class="mb-3 w-[28rem] px-2 text-lg py-2 rounded border border-black" />
+                required maxlength="15" class="mb-3 w-[28rem] px-2 text-lg py-2 rounded border border-black" />
                 <div class="flex justify-center gap-3">
                     <button @click.prevent="modalOpen = false" class="w-full hover:bg-green-300 py-2 rounded bg-green-400">
                         <p>Close</p>

@@ -27,8 +27,8 @@ const listName = ref("");
                 <p class="text-xl text-green-400">.</p>
             </div>
             <form @submit="createList({listName, board_id: board_id})">
-                <input type="text"  v-model="listName" id="create_list_form" 
-                class="mb-3 w-[28rem] px-2 text-lg py-2 rounded border border-black" />
+                <input type="text"  v-model="listName" id="create_list_form" required maxlength="15"
+                    class="mb-3 w-[28rem] px-2 text-lg py-2 rounded border border-black" />
                 <div class="flex justify-center gap-3">
                     <button type="submit" :disbaled="isCreating" class="w-[15rem] hover:bg-green-300 py-2 rounded bg-green-400">
                         <p>Create</p>
