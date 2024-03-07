@@ -11,7 +11,7 @@ import GithubIcon from "./icons/GithubIcon.vue";
                 <p class="text-5xl text-green-400">.</p>
             </div>
             <a href="https://github.com/jakeNorman007/kanban_vue">
-                <GithubIcon class="bg-green-400 p-2 rounded hover:bg-green-300"/>
+                <GithubIcon class="bg-green-400 p-2 hover:bg-green-300"/>
             </a>
         </div>
         <Navbar />

@@ -12,7 +12,7 @@ const { isLoading, boards } = useBoards();
         <div v-if="isLoading" class="pl-[4rem] text-3xl text-green-400"><Spinner /></div>
         <div v-else v-for="(board, index) in boards" :key="index">
             <div class="md:flex">
-                <div class="text-3xl pl-6">{{ board?.name }}</div>
+                <div class="text-3xl pl-6">{{ board?.boardName }}</div>
             </div>
         </div>
     </div>
