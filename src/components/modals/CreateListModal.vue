@@ -14,7 +14,8 @@ const listName = ref("");
 </script>
 
 <template>
-    <button @click="modalOpen = true" class="flex justify-end mt-5 items-center gap-2 bg-green-400 hover:bg-green-300 px-3">
+    <button @click="modalOpen = true" class="flex mt-6 items-center justify-center gap-2 bg-green-400 hover:bg-green-300 
+        md:w-[9rem]">
         <p>Add list</p><CreateIcon />
     </button>
     <div v-if="modalOpen" class="h-screen fixed bg-black z-[998] w-full left-0 

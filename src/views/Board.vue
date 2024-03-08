@@ -23,9 +23,9 @@ function handleRefresh() {
     <div class="md:flex md:gap-6 md:ml-6">
         <CreateListModal />
         <div v-if="isLoading"><Spinner class="text-green-400" /></div>
-        <div v-else class="md:flex md:gap-5 md:items-end">
+        <div v-else class="md:flex md:gap-5 md:items-end md:w-full md:mr-[2rem] md:overflow-x-scroll scrollbar-hide">
             <div v-for="(list, index) in lists" :key="index" class="md:flex md:flex-col-reverse">
-                <div @click="handleRefresh()" class="md:bg-green-400 md:w-[12rem] md:py-1 md:px-3">
+                <div @click.prevent="handleRefresh()" class="md:bg-green-400 md:w-[12rem] md:py-1 md:px-3">
                     <router-link :to="{ path: `${list.id}`}">
                         <p>{{list?.listName}}</p>
                     </router-link>
