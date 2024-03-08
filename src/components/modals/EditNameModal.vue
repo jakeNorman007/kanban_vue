@@ -9,7 +9,7 @@ const modalOpen = ref<boolean>(false);
 
 defineProps(["boards"],);
 
-function handleUpdate(event: any, field: number) {
+function handleUpdate(event: any, field: any) {
     const { value } = event.target;
 
     if (!value) return;

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Spinner from "../icons/Spinner.vue";
-import HamburgerIcon from "../icons/HamburgerIcon.vue";
 import { getCards } from "../queries/cardQueries/useGetCard";
+import CardInfoModal from "../components/modals/CardInfoModal.vue";
 
 const { isLoading, cards } = getCards();
 </script>
@@ -15,7 +15,7 @@ const { isLoading, cards } = getCards();
                 <div class="md:flex md:items-center md:justify-between md:p-3 md:h-[5rem] md:w-[23rem] md:shadow md:border-t-2
                     md:border-green-400">
                     <p class="md:text-xl">{{ card?.name }}</p>
-                    <button><HamburgerIcon /></button>
+                    <button><CardInfoModal /></button>
                 </div>
             </div>
         </div>
