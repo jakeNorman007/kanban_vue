@@ -24,8 +24,8 @@ defineProps(["list"],);
                 <p class="text-xl text-green-400">.</p>
             </div>
             <div class="flex flex-col gap-3">
-                <p>Are you sure you want to delete this list?</p>
                 <p>This action cannot be undone!</p>
+                <p>Are you sure you want to delete this list?</p>
                 <div class="flex gap-3">
                     <button @click="deleteList(list)" :disabled="isDeleting" 
                         class="w-[15rem] hover:bg-green-300 py-2 bg-green-400">

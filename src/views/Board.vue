@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Spinner from "../icons/Spinner.vue";
 import CreateListModal from "../components/modals/CreateListModal.vue";
 import EditListModal from "../components/modals/EditListModal.vue";
 import DeleteListModal from "../components/modals/DeleteListModal.vue";
@@ -22,10 +21,11 @@ function handleRefresh() {
 <template>
     <div class="md:flex md:gap-6 md:ml-6">
         <CreateListModal />
-        <div v-if="isLoading"><Spinner class="text-green-400" /></div>
+        <div v-if="isLoading" class="md:px-3">Loading...</div>
         <div v-else class="md:flex md:gap-5 md:items-end md:w-full md:mr-[2rem] md:overflow-x-scroll scrollbar-hide">
             <div v-for="(list, index) in lists" :key="index" class="md:flex md:flex-col-reverse">
-                <div @click.prevent="handleRefresh()" class="md:bg-green-400 md:w-[12rem] md:py-1 md:px-3">
+                <div @click.prevent="handleRefresh()" class="md:bg-green-400 md:hover:bg-green-300 md:w-[13rem] md:py-2 
+                    md:px-3">
                     <router-link :to="{ path: `${list.id}`}">
                         <p>{{list?.listName}}</p>
                     </router-link>

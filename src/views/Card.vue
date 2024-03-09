@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import Spinner from "../icons/Spinner.vue";
-import { getCards } from "../queries/cardQueries/useGetCard";
 import CardInfoModal from "../components/modals/CardInfoModal.vue";
+import { getCards } from "../queries/cardQueries/useGetCard";
 
 const { isLoading, cards } = getCards();
 </script>
 
 <template>
     <div>
-        <div v-if="isLoading"><Spinner /></div>
+        <div v-if="isLoading">Loading...</div>
         <div v-else class="md:p-6">
             <div v-for="(card, index) in cards" :key="index" class="md:flex md:gap-7 md:flex-wrap md:mx-[4rem] md:px-[2rem]
                 md:overflow-y-scroll md:h-[45rem] md:scrollbar-hide md:py-[1rem]">
