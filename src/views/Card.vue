@@ -14,7 +14,9 @@ const { isLoading, cards } = getCards();
                 <div class="md:flex md:items-center md:justify-between md:p-3 md:h-[5rem] md:w-[23rem] md:shadow md:border-t-2
                     md:border-green-400">
                     <p class="md:text-xl">{{ card?.name }}</p>
-                    <button><CardInfoModal /></button>
+                    <button>
+                        <CardInfoModal :cardId="card?.id" :cardName="card?.name" :cardDescription="card?.description" />
+                    </button>
                 </div>
             </div>
         </div>
