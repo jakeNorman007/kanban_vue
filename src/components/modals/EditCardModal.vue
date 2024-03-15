@@ -29,9 +29,12 @@ function handleRefresh() {
         <Teleport to="body">
         <div v-if="modalOpen" class="gap-3 p-4 flex flex-col bg-white fixed z-[999] w-[35rem] 
             h-[37rem] left-[11%] md:left-[30%] top-[40%] md:top-[15%]">
-            <p>F U</p>
+            <div class="flex justify-between ">
+                <p>Edit card.</p>
+                <button @click="modalOpen = false" class="bg-green-400 px-2 py-1">Back</button>
+            </div>
             <button @click="handleRefresh" class="w-full hover:bg-green-300 py-2 bg-green-400">
-                <p>Close</p>
+                <p>Save changes</p>
             </button>
         </div>
         </Teleport>
