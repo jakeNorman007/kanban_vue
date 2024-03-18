@@ -33,6 +33,9 @@ function handleRefresh() {
                 <p>Edit card.</p>
                 <button @click="modalOpen = false" class="bg-green-400 px-2 py-1">Back</button>
             </div>
+            <div>
+                <input type="text" value="ya momma" />
+            </div>
             <button @click="handleRefresh" class="w-full hover:bg-green-300 py-2 bg-green-400">
                 <p>Save changes</p>
             </button>
