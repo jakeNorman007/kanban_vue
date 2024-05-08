@@ -2,7 +2,7 @@
 </script>
 
 <template>
-    <div>
+    <div class="bg-green-300 w-full h-[55rem]">
         Page not found.
     </div>
 </template>
