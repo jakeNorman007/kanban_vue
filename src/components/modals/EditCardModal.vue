@@ -33,9 +33,12 @@ function handleRefresh() {
                 <p>Edit card.</p>
                 <button @click="modalOpen = false" class="bg-green-400 px-2 py-1">Back</button>
             </div>
-            <div>
+            <div class="flex flex-col">
+                <p>Card ID: {{ cardId }}</p>
                 <label>Card Name:</label>
                 <input class="border border-black" type="text" :value="cardName" />
+                <label>Description:</label>
+                <textarea class="resize-none h-[10rem] border border-black" :value="cardDescription" />
             </div>
             <button @click="handleRefresh" class="w-full hover:bg-green-300 py-2 bg-green-400">
                 <p>Save changes</p>

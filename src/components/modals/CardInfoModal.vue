@@ -20,7 +20,7 @@ defineProps(["cardName", "cardDescription", "cardId"],)
             <div class="flex justify-between">
                 <p>Your card.</p>
                 <button @click="toggleEditCard = true">
-                    <EditCardModal :cardName="cardName" />
+                    <EditCardModal :cardId="cardId" :cardName="cardName" :cardDescription="cardDescription"/>
                 </button>
             </div>
             <p>Card ID: {{ cardId }}</p>
