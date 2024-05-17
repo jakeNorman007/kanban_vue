@@ -1,11 +1,24 @@
 <script setup lang="ts">
 import HamburgerIcon from '../../icons/HamburgerIcon.vue';
+import { useUpdateCard } from '../../queries/cardQueries/useUpdateCard';
+import { useRoute } from "vue-router";
 import { ref } from 'vue';
 
 const modalOpen = ref<boolean>(false);
 const toggleEditCard = ref<boolean>(false);
+const { updateCard, isUpdating } = useUpdateCard(); 
+const route = useRoute();
+const id = route.params.listId;
 
 defineProps(["cardName", "cardDescription", "cardId"],)
+
+function handleUpdate(event: any, field: any) {
+    const { value } = event.target;
+    //console.log(value);
+
+    if (!value) return;
+    updateCard({ [field]: value, id });
+}
 
 function handleRefresh() {
     window.location.reload();
@@ -36,11 +49,11 @@ function handleRefresh() {
             <div class="flex flex-col">
                 <p>Card ID: {{ cardId }}</p>
                 <label>Card Name:</label>
-                <input class="border border-black" type="text" :value="cardName" />
+                <input class="border border-black" type="text" @blur="(event) => handleUpdate(event, 'cardName')" :value="cardName" />
                 <label>Description:</label>
                 <textarea class="resize-none h-[10rem] border border-black" :value="cardDescription" />
             </div>
-            <button @click="handleRefresh" class="w-full hover:bg-green-300 py-2 bg-green-400">
+            <button @click.prevent="modalOpen = false; handleRefresh();" class="w-full hover:bg-green-300 py-2 bg-green-400">
                 <p>Save changes</p>
             </button>
         </div>
